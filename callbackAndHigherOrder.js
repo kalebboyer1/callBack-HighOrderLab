@@ -118,10 +118,12 @@ const uniq = (arr,func) => {
   for(let i = 0; i < arr.length; i++){
     for(let j = i + 1; j < arr.length; j++){
       if(arr[i] === arr[j]){
-      func(arr[i])
+        arr.splice(j, 1)
+                j--
       }
     }
   }
+  func(arr)
 }
 /*
   Invoke the uniq function, passing in the names array from above and a callback function.
@@ -234,8 +236,7 @@ console.log(addTen(20))
 */
 
 // CODE HERE
-const addTwentyOne = addingFactory
-addTwentyOne(2)
+const addTwentyOne = addingFactory(21)
 console.log(addTwentyOne(2))
 
 
